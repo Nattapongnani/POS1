@@ -26,8 +26,6 @@
                         <local:getEquipment Name="Equipment1" Image="food.png" />
                         <local:getEquipment Name="Equipment2" Image="food.png" />
                         <local:getEquipment Name="Equipment3" Image="food.png" />
-                        <local:getEquipment Name="Equipment4" Image="food.png" />
-                        <local:getEquipment Name="Equipment5" Image="food.png" />
                     </x:Array>
                 </CollectionView.ItemsSource>
                 <CollectionView.ItemTemplate>
