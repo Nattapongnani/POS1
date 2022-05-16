@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="POS1.Cart"
+             xmlns:local="clr-namespace:POS1"
+             Title="Cart">
+
+    <Grid RowDefinitions="50,*,Auto,Auto" ColumnDefinitions="*,*" BackgroundColor="Orange">
+        <FlexLayout Grid.Row="0" Grid.ColumnSpan="2" 
+                    BackgroundColor="Red"
+                    Direction="Row">
+            <Image Source="dotnet_bot.png"
+                   WidthRequest="50"/>
+            <Label Text="Cart2"
+                   VerticalOptions="Center"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   />
+        </FlexLayout>
+
+        <ScrollView Grid.Row="1" Grid.ColumnSpan="2" 
+                    >
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type local:getEquipment}">
+                        <local:getEquipment Name="Equipment1" Image="food.png" />
+                        <local:getEquipment Name="Equipment2" Image="food.png" />
+                        <local:getEquipment Name="Equipment3" Image="food.png" />
+                        <local:getEquipment Name="Equipment4" Image="food.png" />
+                        <local:getEquipment Name="Equipment5" Image="food.png" />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*">
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="10"
+                                         Grid.Column="0"
+                                             >
+                                <Image Source="{Binding Image}"
+                                   Aspect="Fill"
+                                   WidthRequest="100"
+                                   HeightRequest="60"
+                                   />
+                                <Label Text="{Binding Name}"
+                                   Margin="5,0"
+                                   VerticalOptions="Center"
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="White"
+                                   />
+                            </StackLayout>
+                                <FlexLayout Direction="Row" 
+                                            Grid.Column="1"
+                                            Margin="15,0,0,0"
+                                            >
+                                <!--<Label Text="{Binding Source={x:Reference stepper}, Path=Value, StringFormat='{0:F0}'}" FontSize="20" VerticalOptions="Center" />-->
+                                <Label Text="{Binding Source={x:Reference stepper}, Path=Value}" FontSize="20" VerticalOptions="Center" />
+                                <Stepper x:Name="stepper" Value="1" Minimum="1" VerticalOptions="Center" Margin="0,0,0,0" />
+                            </FlexLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>   
+        </ScrollView>
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Text="TOTAL" 
+               FontSize="25"
+               FontAttributes="Bold"
+               BackgroundColor="Red"
+               />
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="Rp93.500" 
+               FontSize="25"
+               FontAttributes="Bold"
+               BackgroundColor="Red"
+               />
+        <Button Grid.Row="3" 
+                Grid.Column="0"
+                Text="Click Me" 
+                BackgroundColor="White"
+                TextColor="Black"
+                />
+        <Button Grid.Row="3" 
+                Grid.Column="1"
+                Text="Click Me" 
+                BackgroundColor="Purple"
+                TextColor="White"
+                />
+
+    </Grid>
+
+
+</ContentPage>

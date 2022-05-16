@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="POS1.equipmentView"
+             xmlns:local="clr-namespace:POS1"
+             BackgroundColor="Orange"
+             Title="equipmentView">
+
+    <Grid ColumnDefinitions="{OnIdiom Phone='*', Desktop='2*, *'}">
+
+        <Grid Grid.Column="0" BackgroundColor="Orange">
+                <CollectionView Margin="{OnIdiom Phone='30,0,30,100', Desktop='0,0'}">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type local:EquipmentModel}">
+                            <local:EquipmentModel Name="Equipment1" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment2" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment3" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment4" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment5" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment6" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment7" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment8" Image="food.png" />
+                            <local:EquipmentModel Name="Equipment9" Image="food.png" />
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                     Span="{OnIdiom Phone=1, Desktop=4}" 
+                                     >
+                        </GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ScrollView VerticalOptions="CenterAndExpand">
+                                <StackLayout Margin="{OnPlatform Android=30, WinUI=10}" BackgroundColor="White" Padding="10">
+                                    <Image Source="{Binding Image}" 
+                                   Aspect="Fill"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="150" 
+                                   WidthRequest="230" 
+                                   />
+                                    <Button Text="{Binding Name}" BackgroundColor="Orange" HorizontalOptions="Center" />
+                                </StackLayout>
+                        </ScrollView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                    <!--
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ScrollView>
+                                <StackLayout>
+                                    <Frame HasShadow="True" BorderColor="White" CornerRadius="5" BackgroundColor="White">
+                                        <StackLayout>
+                                            <Image Source="{Binding Image}"
+                                   Aspect="Fill"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="{OnIdiom Phone=320, Desktop=200}"
+                                   HeightRequest="{OnIdiom Phone=200, Desktop=150}" />
+                                            <Button Text="{Binding Name}"
+                                    Padding="10"
+                                    WidthRequest="{OnPlatform WinUI=180}"
+                                    VerticalOptions="Start"
+                                    Margin="{OnIdiom Phone='40,0,40,0', Desktop='0,0,30,0'}"
+                                    BackgroundColor="Orange"
+                                    TextColor="White"
+                                    FontAttributes="{OnPlatform Android='Bold', WinUI='Body'}"
+                                    FontSize="{OnIdiom Phone='Large', Desktop='15'}"
+                                    />
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </ScrollView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    -->
+                </CollectionView>
+        </Grid>
+
+            <FlexLayout Grid.Column="1" 
+                        Direction="Column" 
+                        BackgroundColor="Orange"
+                        IsVisible="{OnIdiom Phone='false', Desktop='true'}">
+                <Grid RowDefinitions="50, *, Auto,Auto" ColumnDefinitions="*,*">
+                    <FlexLayout Grid.Row="0" 
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="Red"
+                                Direction="Row">
+                        <Image Source="dotnet_bot.png"
+                               Margin="10,0,0,0"/>
+                        <Label Text="Cart" 
+                               TextColor="White" 
+                               VerticalOptions="Center" 
+                               Margin="10,0,0,0"
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               />
+                    </FlexLayout>
+
+                    <ScrollView Grid.Row="1" Grid.ColumnSpan="2">
+                        <CollectionView>
+                            <CollectionView.ItemsSource>
+                                <x:Array Type="{x:Type local:getEquipment}">
+                                    <local:getEquipment Name="Equipment1" Image="food.png" />
+                                    <local:getEquipment Name="Equipment2" Image="food.png" />
+                                    <local:getEquipment Name="Equipment3" Image="food.png" />
+                                    <local:getEquipment Name="Equipment4" Image="food.png" />
+                                    <local:getEquipment Name="Equipment5" Image="food.png" />
+                                </x:Array>
+                            </CollectionView.ItemsSource>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" Margin="10">
+                                        <Image Source="{Binding Image}"
+                                               Aspect="Fill"
+                                               WidthRequest="100"
+                                               HeightRequest="60"
+                                               />
+                                        <Label Text="{Binding Name}"
+                                               Margin="10,0"
+                                               VerticalOptions="Center" 
+                                               FontAttributes="Bold"
+                                               FontSize="20"
+                                               />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            
+                        </CollectionView>
+                    </ScrollView>
+                    <Label Grid.Row="2" Grid.Column="0" Text="TOTAL" 
+                           FontAttributes="Bold"
+                           FontSize="25"
+                           VerticalOptions="Center"
+                           BackgroundColor="Red"
+                           />
+                    <Label Grid.Row="2" Grid.Column="1" Text="Rp93.500"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           BackgroundColor="Red"
+                           />
+                    <Button Grid.Row="3" Grid.Column="0" Text="Click Me" BackgroundColor="Snow"  />
+                    <Button Grid.Row="3" Grid.Column="1" Text="Click Me" BackgroundColor="Purple"  TextColor="White" />
+                </Grid>
+                </FlexLayout>
+        </Grid>
+
+
+
+
+</ContentPage>
