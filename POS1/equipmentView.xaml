@@ -4,7 +4,7 @@
              x:Class="POS1.equipmentView"
              xmlns:local="clr-namespace:POS1"
              BackgroundColor="Orange"
-             Title="equipmentView">
+             >
 
     <Grid ColumnDefinitions="{OnIdiom Phone='*', Desktop='2*, *'}">
 
@@ -123,8 +123,12 @@
                                                FontAttributes="Bold"
                                                FontSize="20"
                                                />
-                                    </StackLayout>
-                                </DataTemplate>
+                                        <!--<Label Text="{Binding Source={x:Reference stepper}, Path=Value, StringFormat='{0:F0}'}" FontSize="20" VerticalOptions="Center" />-->
+                                        
+                                        <Label Margin="30,0" Text="{Binding Source={x:Reference stepper}, Path=Value}" FontSize="20" VerticalOptions="Center" />
+                                        <Stepper x:Name="stepper" Value="1" Minimum="1" VerticalOptions="Center" Margin="0,0,0,0" />
+                                </StackLayout>
+                            </DataTemplate>
                             </CollectionView.ItemTemplate>
                             
                         </CollectionView>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="POS1.Cart"
              xmlns:local="clr-namespace:POS1"
-             Title="Cart">
+             >
 
     <Grid RowDefinitions="50,*,Auto,Auto" ColumnDefinitions="*,*" BackgroundColor="Orange">
         <FlexLayout Grid.Row="0" Grid.ColumnSpan="2" 
@@ -88,6 +88,7 @@
                 BackgroundColor="Purple"
                 TextColor="White"
                 />
+
 
     </Grid>
 

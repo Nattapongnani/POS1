@@ -7,17 +7,38 @@
     FlyoutHeaderBehavior="CollapseOnScroll"
     FlyoutBehavior="{OnPlatform Android=Flyout, WinUI=Locked}"
     Shell.TabBarIsVisible="{OnIdiom Phone='True', Desktop='False'}"
-    FlyoutBackdrop="Red"
-    BackgroundColor="Blue"
+    Shell.FlyoutWidth="200"
+    Shell.FlyoutHeight="800"
+    Shell.FlyoutBackdrop="Orange"
     >
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Equipment"
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Image Source="dotnet_bot.png"
+                   HeightRequest="142"
+                   VerticalOptions="Center"
+                   WidthRequest="230"
+                   HorizontalOptions="Center" 
+                   Margin="0,30"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" 
+                >
+        <Tab Title="Equipment" Icon="dotnet_bot.png">
+            <ShellContent Title="Title Equipment"
+                      Shell.TitleColor="Pink"
+                      Shell.BackgroundColor="Green"
                       Icon="dotnet_bot.png"
-                          ContentTemplate="{DataTemplate local:equipmentView}" />
-        <ShellContent Title="Cart"
+                      ContentTemplate="{DataTemplate local:equipmentView}" />
+        </Tab>
+        <Tab Title="Cart" Icon="dotnet_bot.png">
+            <ShellContent Title="Title Cart"
+                      Shell.TitleColor="Pink"
+                      Shell.BackgroundColor="Green"
                       Icon="dotnet_bot.png"
-                          ContentTemplate="{DataTemplate local:Cart}" />
+                      ContentTemplate="{DataTemplate local:Cart}" />
+        </Tab>
     </FlyoutItem>
 
 </Shell>
