@@ -9,8 +9,8 @@
     Shell.TabBarIsVisible="{OnIdiom Phone='True', Desktop='False'}"
     Shell.FlyoutWidth="200"
     Shell.FlyoutHeight="800"
-    Shell.FlyoutBackdrop="Orange"
     >
+    <!-- Shell.FlyoutBackdrop="Orange" -->
 
     <Shell.FlyoutHeader>
         <Grid>
@@ -23,22 +23,45 @@
         </Grid>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" 
-                >
-        <Tab Title="Equipment" Icon="dotnet_bot.png">
-            <ShellContent Title="Title Equipment"
-                      Shell.TitleColor="Pink"
-                      Shell.BackgroundColor="Green"
-                      Icon="dotnet_bot.png"
-                      ContentTemplate="{DataTemplate local:equipmentView}" />
-        </Tab>
-        <Tab Title="Cart" Icon="dotnet_bot.png">
-            <ShellContent Title="Title Cart"
-                      Shell.TitleColor="Pink"
-                      Shell.BackgroundColor="Green"
-                      Icon="dotnet_bot.png"
-                      ContentTemplate="{DataTemplate local:Cart}" />
+    <MenuItem Command="{Binding Eq1Command}"
+              IconImageSource="dotnet_bot.png"
+              Text="Equipment_1" />
+    <MenuItem Command="{Binding Eq2Command}"
+              IconImageSource="dotnet_bot.png"
+              Text="Equipment_2" />
+    <MenuItem Command="{Binding Eq3Command}"
+              IconImageSource="dotnet_bot.png"
+              Text="Equipment_3" />
+    <MenuItem Command="{Binding Eq4Command}"
+              IconImageSource="dotnet_bot.png"
+              Text="Equipment_4" />
+
+    <FlyoutItem>
+        <ShellContent Title="Home" Icon="dotnet_bot.png" ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="Cart" Icon="dotnet_bot.png" ContentTemplate="{DataTemplate local:Cart}" />
+    </FlyoutItem>    
+
+    <!--<TabBar>
+        <ShellContent Title="Home" Icon="dotnet_bot.png" ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="Cart" Icon="dotnet_bot.png" ContentTemplate="{DataTemplate local:Cart}" />
+    </TabBar>
+
+    <FlyoutItem Title="Equipment 1" Icon="dotnet_bot.png">
+        <Tab Title="Tab1" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:equipmentView}" />
         </Tab>
     </FlyoutItem>
+    <FlyoutItem Title="Equipment 2" Icon="dotnet_bot.png" Shell.TabBarIsVisible="False">
+        <Tab Title="Tab2" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NewPage1}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Equipment 3" Icon="dotnet_bot.png">
+        <Tab Title="Tab3" Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NewPage1}" />
+        </Tab>
+    </FlyoutItem>
+    -->
+
 
 </Shell>
